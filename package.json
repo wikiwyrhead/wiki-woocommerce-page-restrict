@@ -3,8 +3,12 @@
   "version": "1.6.7",
   "scripts": {
     "build": "wp-scripts build",
+    "build:production": "wp-scripts build --mode=production",
+    "watch": "wp-scripts start",
+    "clean": "rm -rf admin/assets/build/*",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
+    "format": "wp-scripts format",
     "format:js": "wp-scripts format-js",
     "lint:css": "wp-scripts lint-style",
     "lint:css:fix": "wp-scripts lint-style --fix",
@@ -35,7 +39,7 @@
   "homepage": "https://wordpress.org/plugins/page-restrict-for-woocommerce",
   "devDependencies": {
     "@wordpress/babel-plugin-makepot": "^3.9.*",
-    "@wordpress/scripts": "^23.3.0",
+    "@wordpress/scripts": "^30.11.0",
     "copy-webpack-plugin": "^6",
     "ignore-emit-webpack-plugin": "^2.0.*",
     "mini-css-extract-plugin": "^1.6.*",

@@ -13,9 +13,12 @@
  */
 namespace PageRestrictForWooCommerce\Includes;
 use PageRestrictForWooCommerce\Admin\Admin;
+use PageRestrictForWooCommerce\Admin\Role_Settings;
+use PageRestrictForWooCommerce\Admin\Page_Role_Meta;
 use PageRestrictForWooCommerce\Front\Front;
 use PageRestrictForWooCommerce\Includes\Core\Loader;
 use PageRestrictForWooCommerce\Includes\Core\i18n;
+use PageRestrictForWooCommerce\Common\Role_Setup;
 use function PageRestrictForWooCommerce\Functions\is_woocommerce_active;
 use function PageRestrictForWooCommerce\Functions\activation_notices;
 /**
@@ -236,6 +239,10 @@ class Page_Restrict_Wc {
 			$this->loader->add_action( 'init', $plugin_admin, 'post_meta_on_update' );
 			$this->loader->add_action( 'before_woocommerce_init', $plugin_admin, 'before_woocommerce_init' );
 			$this->loader->add_filter( 'plugin_action_links', $plugin_admin, 'plugin_action_links',10,2 );
+			// Initialize role setup
+			new Role_Setup();
+			$role_settings = new Role_Settings();
+			$page_role_meta = new Page_Role_Meta();
 		}
 	}
 

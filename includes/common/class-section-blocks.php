@@ -11,6 +11,7 @@ namespace PageRestrictForWooCommerce\Includes\Common;
 use PageRestrictForWooCommerce\Includes\Common\Restrict_Types;
 use PageRestrictForWooCommerce\Includes\WooCommerce\Products_Bought;
 use PageRestrictForWooCommerce\Includes\Common\Page_Plugin_Options;
+use PageRestrictForWooCommerce\Common\Role_Based_Access;
 /**
  * Processing content for entire entire pages or section in order to restrict access according to views, time or any other way.
  *
@@ -31,6 +32,12 @@ class Section_Blocks
      * @var      class      $restrict    The current version of the plugin.
      */
     protected $restrict;
+    /**
+     * @since    1.6.8
+     * @access   protected
+     * @var      Role_Based_Access    $role_access    Role-based access control instance.
+     */
+    protected $role_access;
     /**
      * @since    1.0.0
      * @access   public
@@ -186,9 +193,10 @@ class Section_Blocks
     {
 		$this->user_id = get_current_user_id();
 		$this->post_id = get_the_ID();
-        $this->restrict         = new Restrict_Types();
-        $this->products_bought  = new Products_Bought();
-        $this->page_options     = new Page_Plugin_Options();
+        $this->products_bought = new Products_Bought();
+        $this->restrict = new Restrict_Types();
+        $this->role_access = new Role_Based_Access();
+        $this->page_options = new Page_Plugin_Options();
     
         $this->products     =   $this->page_options->get_page_options($this->post_id, 'prwc_products');
         $this->not_all_products_required     =   $this->page_options->get_page_options($this->post_id, 'prwc_not_all_products_required');
@@ -221,6 +229,16 @@ class Section_Blocks
      */
     public function process_section(array $atts, string $content)
     {
+        // Early bypass for authorized roles
+        if ($this->role_access->can_bypass_restrictions($this->post_id)) {
+            return do_shortcode($content);
+        }
+        
+        // If no products are specified, allow access
+        if (!isset($atts['products']) || !$atts['products']) {
+            return do_shortcode($content);
+        }
+
         $a = shortcode_atts(array(
             'products' => false,
             'notAllProductsRequired' => false,
@@ -400,12 +418,29 @@ class Section_Blocks
      */
     public function process_page(string $content)
     {
-        global $post;
-        if (!isset($post)) {
+        // Early bypass for authorized roles
+        if ($this->role_access->can_bypass_restrictions($this->post_id)) {
             return do_shortcode($content);
         }
+
+        // If no post or no products are specified, allow access
+        global $post;
+        if (!isset($post) || !$this->products) {
+            return do_shortcode($content);
+        }
+
         $user_id = $this->user_id;
         $post_id = $this->post_id;
+
+        // Don't restrict access to special pages
+        if(
+            $post_id === $this->not_bought_page ||
+            $post_id === $this->not_logged_in_page ||
+            $post_id === $this->general_not_bought_page ||
+            $post_id === $this->general_login_page
+        ){
+            return do_shortcode($content);
+        }
 
         $general_not_bought_page     = $this->general_not_bought_page;
         $general_login_page          = $this->general_login_page;
@@ -419,17 +454,6 @@ class Section_Blocks
         $minutes    = $this->minutes;
         $seconds    = $this->seconds;
         $views      = $this->views;
-        if(
-            $post_id === $not_bought_page ||
-            $post_id === $not_logged_in_page ||
-            $post_id === $general_not_bought_page ||
-            $post_id === $general_login_page
-        ){
-            return do_shortcode($content);
-        }
-        if(!$products){
-            return do_shortcode($content);
-        }
         if (is_user_logged_in()){
             if (gettype($products) == "string") {
                 $products_arr = array_map(function ($item) {
@@ -506,6 +530,11 @@ class Section_Blocks
      */
     public function process_page_redirect()
     {
+        // Early bypass for authorized roles
+        if ($this->role_access->can_bypass_restrictions($this->post_id)) {
+            return;
+        }
+
         global $post;
         if (!isset($post)) {
             return;
@@ -513,6 +542,20 @@ class Section_Blocks
         $user_id = $this->user_id;
         $post_id = $this->post_id;
 
+        // Don't restrict access to special pages
+        if(
+            $post_id === $this->not_bought_page ||
+            $post_id === $this->not_logged_in_page ||
+            $post_id === $this->general_not_bought_page ||
+            $post_id === $this->general_login_page
+        ){
+            return;
+        }
+        
+        // If no products specified, don't restrict
+        if(!$this->products){
+            return;
+        }
         $general_not_bought_page 	 = $this->general_not_bought_page;
         $general_login_page 		 = $this->general_login_page;
         $redirect_general_not_bought     = $this->redirect_general_not_bought;
@@ -531,19 +574,7 @@ class Section_Blocks
         $seconds    = $this->seconds;
         $views      = $this->views;
 
-        if(
-            $post_id === $not_bought_page ||
-            $post_id === $not_logged_in_page ||
-            $post_id === $general_not_bought_page ||
-            $post_id === $general_login_page
-        ){
-            return;
-        }
-        
-        if(!$products){
-            return;
-        }
-		if (is_user_logged_in()) {
+        if (is_user_logged_in()) {
             if (gettype($products) == "string") {
                 $products_arr = array_map(function ($item) {
                     return (int)trim($item);

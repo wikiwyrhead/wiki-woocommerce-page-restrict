@@ -1,0 +1,237 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:13
+msgid "Time of Expiration"
+msgstr ""
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:17
+msgid "Sint quam voluptatem sed accusamus ut"
+msgstr ""
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:22
+msgid "18.04.2020 19:11"
+msgstr ""
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:26
+msgid "Phasellus et fringilla velit"
+msgstr ""
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:31
+msgid "08.04.2020 04:32"
+msgstr ""
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:35
+msgid "Animi maxime numquam veniam aliquam aut distinctio"
+msgstr ""
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:40
+msgid "14.04.2020 19:11"
+msgstr ""
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:53
+msgid "Page"
+msgstr ""
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:54
+msgid "View"
+msgstr ""
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:55
+msgid "Views left"
+msgstr ""
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:59
+msgid "Fugiat repellat qui harum minus recusandae"
+msgstr ""
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:69
+msgid "Doloremque non sunt sint dolorum"
+msgstr ""
+
+#: admin/assets/src/js/blocks/components/preview-time-view-tables.js:79
+msgid "Ut vel quibusdam totam"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:21
+msgid "Restrict Section for WooCommerce"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:22
+msgid "Restricts access to sections of pages using WooCommerce products."
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:395
+#: admin/assets/src/js/blocks/restricted-pages-list.js:70
+msgid "General"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:401
+msgid "Show restricted content"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:409
+msgid "Inverse Block"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:418
+msgid "Show content if user has no access."
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:425
+msgid ""
+"This is to notify the user they don't have access and what to do to access "
+"it."
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:433
+msgid "Default: The user will not see the text in the section"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:441
+msgid "Default Restrict Message"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:454
+msgid ""
+"Show a Restrict Message which contains products needed to buy instead of "
+"nothing."
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:462
+msgid "Default: Section will be empty."
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:469
+msgid "Copy settings from another block"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:477
+msgid "Above block"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:488
+msgid "Below block"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:503
+#: admin/assets/src/js/sidebars/plugin.js:348
+msgid "Products"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:511
+#: admin/assets/src/js/sidebars/plugin.js:358
+msgid "Lock by Products"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:533
+#: admin/assets/src/js/sidebars/plugin.js:360
+msgid "No available products to show"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:566
+#: admin/assets/src/js/sidebars/plugin.js:368
+msgid "Not all products required"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:588
+#: admin/assets/src/js/sidebars/plugin.js:473
+msgid "Timeout"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:593
+#: admin/assets/src/js/sidebars/plugin.js:481
+msgid "Days"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:604
+#: admin/assets/src/js/sidebars/plugin.js:486
+msgid "Hours"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:615
+#: admin/assets/src/js/sidebars/plugin.js:491
+msgid "Minutes"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restrict-section.js:626
+#: admin/assets/src/js/sidebars/plugin.js:496
+msgid "Seconds"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restricted-pages-list.js:107
+msgid ""
+"Show a table containing all pages the current user bought products for in "
+"order to access them."
+msgstr ""
+
+#: admin/assets/src/js/blocks/restricted-pages-list.js:116
+msgid "Disable default table design"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restricted-pages-list.js:13
+msgid "Restricted Pages List"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restricted-pages-list.js:14
+msgid ""
+"Shows a list of all pages that the current user bought a product needed for "
+"unlock."
+msgstr ""
+
+#: admin/assets/src/js/blocks/restricted-pages-list.js:76
+msgid "Show Time Table"
+msgstr ""
+
+#: admin/assets/src/js/blocks/restricted-pages-list.js:91
+msgid "Show View Table"
+msgstr ""
+
+#: admin/assets/src/js/main/general-block-var.js:78
+msgid ""
+"You had the \"Above block\" or \"Below block\" setting checked but you dont "
+"have a usable block. Add a Section Block below or above in order to be able "
+"to check that setting"
+msgstr ""
+
+#: admin/assets/src/js/sidebars/plugin.js:375
+msgid "Default Page to Show for Pages"
+msgstr ""
+
+#: admin/assets/src/js/sidebars/plugin.js:396
+msgid "Redirect if product was not bought"
+msgstr ""
+
+#: admin/assets/src/js/sidebars/plugin.js:402
+msgid "Default: Render the not bought page content into the current page"
+msgstr ""
+
+#: admin/assets/src/js/sidebars/plugin.js:424
+msgid "Redirect if user is not logged in"
+msgstr ""
+
+#: admin/assets/src/js/sidebars/plugin.js:430
+msgid "Default: Render the user is not logged in page content into the current page"
+msgstr ""
+
+#: admin/assets/src/js/sidebars/plugin.js:437
+msgid "Default Page to Show for Sections"
+msgstr ""
+
+#: admin/assets/src/js/sidebars/plugin.js:446
+msgid "Page to show if product not bought"
+msgstr ""
+
+#: admin/assets/src/js/sidebars/plugin.js:461
+msgid "Page to show if user is not logged in"
+msgstr ""
+
+#: admin/assets/src/js/sidebars/plugin.js:466
+msgid "No available pages to show"
+msgstr ""
+
+#: admin/assets/src/js/sidebars/plugin.js:502
+msgid "Views"
+msgstr ""
